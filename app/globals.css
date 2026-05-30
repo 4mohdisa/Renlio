@@ -2,14 +2,18 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* HARD FONT FIX: Direct Roboto declaration - overrides everything */
+html, body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-sans);
+  --font-sans: var(--font-roboto);
+  --font-heading: var(--font-roboto);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -49,38 +53,53 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --background: #FAFBFC;
+  --foreground: #1A2332;
+  --card: #FFFFFF;
+  --card-foreground: #1A2332;
+  --popover: #FFFFFF;
+  --popover-foreground: #1A2332;
+  --primary: #1E3A5F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0F4F8;
+  --secondary-foreground: #1A2332;
+  --muted: #EEF2F6;
+  --muted-foreground: #5A6B7F;
+  --accent: #0D9488;
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --border: #DDE3EB;
+  --input: #DDE3EB;
+  --ring: #0D9488;
+  --chart-1: #0D9488;
+  --chart-2: #059669;
+  --chart-3: #D97706;
+  --chart-4: #DC2626;
+  --chart-5: #7C3AED;
   --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar: #1E3A5F;
+  --sidebar-foreground: #E2E8F0;
+  --sidebar-primary: #FFFFFF;
+  --sidebar-primary-foreground: #1E3A5F;
+  --sidebar-accent: #2A4A6F;
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #2A4A6F;
+  --sidebar-ring: #0D9488;
+  
+  /* Status colors */
+  --success: #059669;
+  --success-light: #D1FAE5;
+  --success-foreground: #047857;
+  --warning: #D97706;
+  --warning-light: #FEF3C7;
+  --warning-foreground: #92400E;
+  --info: #0284C7;
+  --info-light: #E0F2FE;
+  --info-foreground: #0369A1;
+  
+  /* Surface colors */
+  --surface: #F5F7FA;
+  --surface-alt: #EEF2F6;
 }
 
 .dark {
@@ -126,5 +145,8 @@
   }
   html {
     @apply font-sans;
+  }
+  * {
+    @apply border-border;
   }
 }
